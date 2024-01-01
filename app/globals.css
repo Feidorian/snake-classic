@@ -2,26 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
+
+
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
   }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
+    }
+  }
+
+  body {
+    @apply p-0 m-0 w-screen h-screen overflow-hidden;
+  }
+
+  /* .qs_color {
+    -webkit-appearance: none;
+    border: none;
+    left: 0px !important;
+    visibility: hidden;
+  }
+  .qs_color::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  .qs_color::-webkit-color-swatch {
+    border: none;
+  } */
+
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .qs_title_bar {
+    @apply text-xl text-center !text-slate-900;
+  }
+  #Start {
+    @apply daisy-btn daisy-btn-success text-white w-full text-xl uppercase;
+  }
+  div:has(>#ResetAll) {
+    @apply flex justify-end;
+  }
+  #ResetAll {
+    @apply daisy-btn daisy-btn-xs daisy-btn-error text-white rounded-none;
+  }
+
+  #LastScore, #MaxScore {
+    @apply pointer-events-none;
+  }
+
+  .qs_main:has(.qs_content){
+    height: min(804px, 92%);
+    @apply !overflow-auto;
+
+  }
+
+  /* .qs_container:has(> .qs_checkbox_label[for='Wrap Window Borders']) {
+    @apply !h-fit !py-2.5;
+  }
+  .qs_checkbox_label[for='Wrap Window Borders']::after {
+    content: 'Warning: Resets Max Score';
+    display: block;
+    @apply text-error;
+  } */
+
+
 }
