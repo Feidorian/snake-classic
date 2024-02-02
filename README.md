@@ -2,6 +2,7 @@
 
 - An implementation of the classical snake game with NextJS App router and p5js.
 
+## [Demo](https://snake-classic-gilt.vercel.app)
 ## Road Map
 - [x] Customizable UI with local persistence.
 - [x] Encryption of persisted data.
