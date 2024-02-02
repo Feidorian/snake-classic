@@ -121,10 +121,11 @@
 		 * @param y            {Number}        y position of panel (default 0)
 		 * @param title        {String}        title of panel (default "QuickSettings")
 		 * @param [parent]    {HTMLElement}    parent element (default document.body)
+		 * @param secureStorage {any}
 		 * @returns {module:QuickSettings}    New QuickSettings Panel
 		 * @static
 		 */
-		create: function (x, y, title, parent, secureStorage) {
+		create: function (x, y, title, parent, secureStorage=localStorage) {
 			var obj = Object.create(this);
 			obj._init(x, y, title, parent, secureStorage);
 			return obj;
